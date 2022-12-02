@@ -261,7 +261,38 @@
         itaque consectetur expedita. Libero, repudiandae?
       </li>
     </ul>
+    <script>
+      const btnPlay = document.querySelector("#playButton");
+      const video = document.querySelector(".movie")
+      const mute = document.querySelector("#muteButton")
 
+
+      class MediaPlayer{
+        constructor(video){
+          this.video = video;
+        }
+
+        playAndPause(){
+          this.video.paused === false ? 
+          this.video.pause() : 
+          this.video.play()  
+          
+        }
+
+        mute(){
+          this.video.muted === false ? 
+          this.video.muted = true:
+          this.video.muted = false    
+        }
+      }
+      
+
+      const player = new MediaPlayer(video)
+
+      btnPlay.onclick = () => player.playAndPause()
+      mute.onclick = () => player.mute()
+
+    </script>
     <script type="module" src="/assets/index.ts"></script>
   </body>
 </html>
